@@ -1,20 +1,17 @@
 <!doctype html>
 <html lang="pt-BR">
 
-<head>
-    {% include 'parciais/_head.html' %}
-    <title>{% block titulo %}{% endblock %}E-commerce</title>
+<head>    
+    <title>My E-commerce - {% block titulo %}{% endblock %}</title>
 </head>
 
-<body>
-    {% include 'parciais/_nav.html' %}
-
-    <main class="container mt-4 mb-4">
-        {% include 'parciais/_messages.html' %}
+<body>    
+    <nav>Menu Principal:
+        <a href="cad_produto">Cadastrar Produto</a> | <a href="lista_produtos">Listar Produtos</a> | <a href="http://127.0.0.1:8000/admin/produto/produto">admin</a>
+    </nav>
+    <main class="container mt-4 mb-4">        
         {% block conteudo %}{% endblock %}
     </main>
-
-    {% include 'parciais/_footer.html' %}
 
 </body>
 

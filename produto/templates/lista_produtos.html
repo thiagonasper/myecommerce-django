@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block titutlo %}  Listagem de Produtos {% endblock %}
+
+{% block conteudo %}
+<span>
+    {% for produto in lista_produtos %}
+    <li>
+        <span>{{produto.nome}}</span>
+        <span>{{ produto.imagem }}</span>
+        <span>
+            {% if produto.imagem %}
+            
+                <img class="card-img-top" src="{{ produto.imagem.url }}" alt="{{ produto.nome }}" height="50">
+            
+            {% endif %}
+        </span>
+    </li>
+    {% endfor %}
+</span>
+
+
+{% endblock conteudo %}

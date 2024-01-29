@@ -1,8 +1,11 @@
 
 from django import forms
 
-class ProdutoForm(forms.Form):    
-    your_name = forms.CharField(label="Your name", max_length=100)
+from produto.models import Produto
 
-    
+class ProdutoForm(forms.ModelForm):    
+    class Meta:
+        model = Produto
+        exclude = ["slug"]
+
     
