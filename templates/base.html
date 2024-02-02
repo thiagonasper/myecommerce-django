@@ -3,13 +3,41 @@
 
 <head>    
     <title>My E-commerce - {% block titulo %}{% endblock %}</title>
+    {% load static %}
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}  
+    <!-- reference your installed Font Awesome Free package's files here -->
+    <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+   
+    <!-- reference your installed Font Awesome Free package's files here -->
+    <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
+   
+    
 </head>
 
 <body>    
-    <nav>Menu Principal:
-        <a href="cad_produto">Cadastrar Produto</a> | <a href="lista_produtos">Listar Produtos</a> | <a href="http://127.0.0.1:8000/admin/produto/produto">admin</a>
+    <nav class="nav bg-success">    
+        
+            <li class="nav-item">
+            <a class="nav-link link-light" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link link-light" href="/produto/add">Cadastrar Produto</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link link-light" href="/produto/lista">Listar Produtos</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link link-light" href="/carrinho">Carrinho</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link link-light" href="http://127.0.0.1:8000/admin/produto/produto">admin</a>
+            </li>
+        
     </nav>
-    <main class="container mt-4 mb-4">        
+
+    <main class="container">        
         {% block conteudo %}{% endblock %}
     </main>
 

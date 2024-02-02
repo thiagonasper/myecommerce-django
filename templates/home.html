@@ -2,7 +2,57 @@
 
 {% block conteudo %}
 
-<h1>Página Inicial</h1>
+<div class="row">
 
+   <p>{{ variavel_teste }}</p>
+
+    {% for produto in lista_produtos %}
+
+    <div class="col-lg-2">
+        <div class="card">
+
+            {% if produto.imagem %}
+            <a href="{% url 'produto_detalhe' produto.slug %}" class="card-img-top">
+                <img class="card-img-top" src="{{ produto.imagem.url }}" alt="{{ produto.nome }}" height="150">
+            </a>
+            {% endif %}
+
+            <div class="card-body">
+                <h5 class="card-title">{{ produto.nome }}</h5>
+                <p class="card-text">{{ produto.slug }}</p>
+                <div class="container product-price-block text-center">
+
+                    {% if produto.preco_marketing_promocional %}
+                    <span class="product-price">
+                        {{ produto.preco_marketing_promocional }}
+                    </span>
+                    <span class="product-old-price text-muted">
+                        {{ produto.preco_marketing }}
+                    </span>
+                    {% else %}
+                    <span class="product-price">
+                        {{ produto.preco_marketing }}
+                    </span>
+                    {% endif %}
+
+                </div>
+            </div>
+            <div class="card-footer bg-transparent border-top-light-custom text-center">
+                <a href="/carrinho/add/{{ produto.pk }}">
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                    Comprar
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+
+<div class="row mt-3">
+    <div class="col">
+        paginação aqui
+    </div>
+</div>
 
 {% endblock conteudo %}

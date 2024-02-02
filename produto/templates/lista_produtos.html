@@ -2,21 +2,25 @@
 {% block titutlo %}  Listagem de Produtos {% endblock %}
 
 {% block conteudo %}
-<span>
-    {% for produto in lista_produtos %}
-    <li>
-        <span>{{produto.nome}}</span>
-        <span>{{ produto.imagem }}</span>
-        <span>
-            {% if produto.imagem %}
-            
-                <img class="card-img-top" src="{{ produto.imagem.url }}" alt="{{ produto.nome }}" height="50">
-            
-            {% endif %}
-        </span>
-    </li>
-    {% endfor %}
-</span>
+
+<table class="table">
+    <thead>
+        <tr>        
+           <th>Nome</th>
+           <th>Preço</th>
+           <th>Imagem</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for produto in lista_produtos %}
+        <tr>
+            <td>{{ produto.nome }}</td>
+            <td>{{ produto.preco }}</td>
+            <td><img class="card-img-top" src="{{ produto.imagem.url }}" alt="{{ produto.nome }}" height="50"></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 
 
 {% endblock conteudo %}

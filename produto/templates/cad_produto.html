@@ -2,15 +2,16 @@
 {% block titutlo %}  Cadastro de Produtos {% endblock %}
 
 {% block conteudo %}
-<form method="POST" enctype="multipart/form-data">
+<form method="POST" enctype="multipart/form-data" class="row g-3">
     {% csrf_token %}
     {% for field in form %}
-    <div class="fieldWrapper">
-<!-- {{ field.errors }} -->        
-        {{ field.label_tag }} {{ field }}
-    </div>
-{% endfor %}
-    <button type="submit" class="btn btn-dark"> <i class="fas fa-check"></i> Cadastrar</button>
+        <div class="fieldWrapper col-md-6">
+            <label for="exampleFormControlInput1" class="form-label">{{ field.label_tag }}</label>        
+            {{ field }}                        
+        </div>
+        <!--  -->
+    {% endfor %}
+    <button type="submit" class="btn btn-primary"> <i class="fas fa-check"></i> Cadastrar</button>
 </form>
 
 
